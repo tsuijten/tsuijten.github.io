@@ -45,8 +45,8 @@ _includes/
 _layouts/default.html
 assets/css/main.scss     # design: "field notes / explorer", aardse tinten
 assets/js/main.js        # thematoggle, mobiel menu, header-scroll
-index.html / index.en.html   # wrappers -> /  en  /en/
-talks.html / talks.en.html   # wrappers -> /talks/  en  /en/talks/
+index.html / index.en.html      # wrappers -> /  en  /en/
+spreker.html / speaking.en.html # wrappers -> /spreker/  en  /en/speaking/
 ```
 
 ## Vertaling toevoegen (Engels)

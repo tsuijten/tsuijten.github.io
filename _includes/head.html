@@ -22,6 +22,8 @@
 <link rel="alternate" hreflang="nl" href="{{ site.url }}{{ nl_route }}">
 <link rel="alternate" hreflang="en" href="{{ site.url }}/en{{ en_route }}">
 <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ nl_route }}">
+{%- comment -%} Language auto-detect only on the default-language (NL) homepage. {%- endcomment -%}
+{% if page.page_id == 'home' and site.active_lang == site.default_lang %}{% include lang-detect.html %}{% endif %}
 
 <!-- Open Graph / Twitter -->
 <meta property="og:type" content="website">

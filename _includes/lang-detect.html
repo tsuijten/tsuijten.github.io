@@ -1,0 +1,50 @@
+{%- comment -%}
+  Browser-language detection (inspired by hack-the-planet.io). Runs
+  synchronously in <head> so there is no content flash. Only included on the
+  default-language homepage (see head.html guard) — visiting any other URL is
+  treated as an explicit choice. Decision flow:
+    1. Crawlers are never redirected (so every hreflang variant stays
+       indexable on its own URL).
+    2. A stored choice (localStorage `lang`, written by the switcher) always
+       wins: if it differs from this page and an alternate exists → redirect.
+    3. Otherwise, if the visitor prefers Dutch → stay; if not → go to English.
+  Alternate URLs are read from the <link rel="alternate" hreflang> tags, so
+  per-language slugs (/spreker/ <-> /en/speaking/) are handled automatically.
+{%- endcomment -%}
+<script>
+(function () {
+  if (/bot|crawl|spider|slurp|mediapartners|facebookexternalhit|embedly|quora link preview|outbrain|pinterest|whatsapp|telegrambot|preview/i.test(navigator.userAgent)) {
+    return;
+  }
+
+  var currentLang = document.documentElement.lang || '{{ site.active_lang }}';
+
+  var alternates = {};
+  var links = document.getElementsByTagName('link');
+  for (var i = 0; i < links.length; i++) {
+    if (links[i].rel === 'alternate' && links[i].hreflang) {
+      alternates[links[i].hreflang] = links[i].href;
+    }
+  }
+
+  var stored = null;
+  try { stored = localStorage.getItem('lang'); } catch (e) { /* storage blocked */ }
+
+  if (stored) {
+    if (stored !== currentLang && alternates[stored]) location.replace(alternates[stored]);
+    return;
+  }
+
+  var prefs = (navigator.languages && navigator.languages.length)
+    ? navigator.languages
+    : [navigator.language || ''];
+
+  for (var j = 0; j < prefs.length; j++) {
+    var pref = (prefs[j] || '').toLowerCase().split('-')[0];
+    if (pref === currentLang) return; // visitor prefers the current language → stay
+  }
+
+  // Not a Dutch-preferring visitor → send them to the English version.
+  if (alternates['en']) location.replace(alternates['en']);
+})();
+</script>

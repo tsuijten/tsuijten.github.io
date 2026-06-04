@@ -3,6 +3,13 @@
 
   const root = document.documentElement;
 
+  // --- Remember manual language choice so the auto-detect in <head> backs off ---
+  document.querySelectorAll('.lang-link').forEach((a) => {
+    a.addEventListener('click', () => {
+      try { localStorage.setItem('lang', a.getAttribute('hreflang')); } catch (e) {}
+    });
+  });
+
   // --- Theme toggle ---
   const applyTheme = (theme) => {
     const dark = theme === 'dark' ||
