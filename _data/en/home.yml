@@ -45,7 +45,7 @@ story:
   photo:
     image: "/images/thijs-jeugd-computer.webp"
     alt: "Thijs as a kid behind his first computer"
-    caption: "Exhibit A: a die-hard nerd, late '90s. That happy face? Had just seen his first line of code actually work."
+    caption: "Exhibit A: a die-hard nerd, '90s. That happy face? Had just seen his first line of code actually work."
 
 work:
   label: "what i do"
