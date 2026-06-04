@@ -1,0 +1,70 @@
+{%- assign d = site.data[site.active_lang][page.page_id] -%}
+{%- assign seo = d.seo -%}
+{%- assign p = page.permalink -%}
+{%- assign nl_route = site.data.nl.common.routes[page.page_id] -%}
+{%- assign en_route = site.data.en.common.routes[page.page_id] -%}
+{%- if site.active_lang == "nl" -%}
+  {%- assign canonical = site.url | append: p -%}
+{%- else -%}
+  {%- assign canonical = site.url | append: "/" | append: site.active_lang | append: p -%}
+{%- endif -%}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>{{ seo.title }}</title>
+<meta name="description" content="{{ seo.description | strip_newlines }}">
+<meta name="author" content="{{ site.author }}">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#bf502a">
+<link rel="canonical" href="{{ canonical }}">
+
+<!-- hreflang (per-language slugs via routes map) -->
+<link rel="alternate" hreflang="nl" href="{{ site.url }}{{ nl_route }}">
+<link rel="alternate" hreflang="en" href="{{ site.url }}/en{{ en_route }}">
+<link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ nl_route }}">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Thijs Suijten">
+<meta property="og:locale" content="{% if site.active_lang == 'nl' %}nl_NL{% else %}en_US{% endif %}">
+<meta property="og:locale:alternate" content="{% if site.active_lang == 'nl' %}en_US{% else %}nl_NL{% endif %}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:title" content="{{ seo.title }}">
+<meta property="og:description" content="{{ seo.description | strip_newlines }}">
+<meta property="og:image" content="{{ site.url }}{{ site.image }}">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Thijs Suijten op het TEDx-podium">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ seo.title }}">
+<meta name="twitter:description" content="{{ seo.description | strip_newlines }}">
+<meta name="twitter:image" content="{{ site.url }}{{ site.image }}">
+<meta name="twitter:image:alt" content="Thijs Suijten op het TEDx-podium">
+
+<!-- icons -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+{% include structured-data.html %}
+
+<!-- set theme before paint to avoid a flash -->
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem('theme');
+      var dark = t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    } catch (e) {}
+  })();
+</script>

@@ -1,0 +1,35 @@
+language_label: Nederlands
+language_short: NL
+
+brand: Thijs Suijten
+brand_tag: "engineer · spreker · tech for good"
+skip_link: Naar inhoud
+
+# In-language slug per page_id (used by the language switcher and hreflang to
+# map a page to its counterpart in the other language).
+routes:
+  home: "/"
+  talks: "/spreker/"
+
+nav:
+  - title: Verhaal
+    url: "/#verhaal"
+  - title: Wat ik doe
+    url: "/#wat-ik-doe"
+  - title: Projecten
+    url: "/#projecten"
+  - title: Spreker
+    url: "/spreker/"
+  - title: Contact
+    url: "/#contact"
+
+footer:
+  tagline: "Engineer die z'n code inzet voor iets groters."
+  links_label: "// vind me hier"
+  links:
+    - title: LinkedIn
+      url: "https://www.linkedin.com/in/tsuijten/"
+    - title: Hack The Planet
+      url: "https://www.hack-the-planet.io/nl/"
+  rights: "Thijs Suijten"
+  theme_toggle: Wissel thema

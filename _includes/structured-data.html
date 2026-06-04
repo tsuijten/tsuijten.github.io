@@ -1,0 +1,41 @@
+{%- comment -%}
+  JSON-LD structured data. A Person schema makes Thijs eligible for rich
+  results / knowledge-panel info; a WebSite schema names the site. Driven by
+  _config.yml (author, image, social) so it stays in sync.
+{%- endcomment -%}
+{%- assign person_img = site.url | append: site.image -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "{{ site.url }}/#person",
+      "name": "{{ site.author }}",
+      "url": "{{ site.url }}/",
+      "image": "{{ person_img }}",
+      "jobTitle": "Software engineer",
+      "description": "{{ site.description | strip_newlines | strip }}",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Hack The Planet",
+        "url": "https://www.hack-the-planet.io/"
+      },
+      "knowsAbout": ["Tech for good", "Computer vision", "Artificial intelligence", "Natuurbehoud", "Anti-poaching", "Software engineering"],
+      "sameAs": [
+        "{{ site.social.linkedin }}",
+        "{{ site.social.ted }}"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}/",
+      "name": "{{ site.title }}",
+      "inLanguage": "{{ site.active_lang | default: site.default_lang }}",
+      "description": "{{ site.description | strip_newlines | strip }}",
+      "publisher": { "@id": "{{ site.url }}/#person" }
+    }
+  ]
+}
+</script>

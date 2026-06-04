@@ -1,0 +1,25 @@
+{%- comment -%}
+  Shared "kijken & luisteren" block (documentaries, talks, podcasts).
+  Used on home and /spreker/. Reads _data/<lang>/media.yml. Each page wraps
+  this in its own <section> so it fits that page's alternating background.
+{%- endcomment -%}
+{%- assign w = site.data[site.active_lang].media -%}
+<span class="field-label">// {{ w.label }}</span>
+<h2 class="section-title">{{ w.title }}</h2>
+<ul class="media-grid">
+  {%- for m in w.items -%}
+    <li>
+      <a class="media-card" href="{{ m.url }}" target="_blank" rel="noopener">
+        <div class="media-photo">
+          <img src="{{ m.image }}" alt="{{ m.title }}" loading="lazy">
+          <span class="video-play" aria-hidden="true">▶</span>
+        </div>
+        <div class="media-body">
+          <span class="media-meta mono">{{ m.meta }}</span>
+          <h3>{{ m.title }}</h3>
+          <p>{{ m.text }}</p>
+        </div>
+      </a>
+    </li>
+  {%- endfor -%}
+</ul>

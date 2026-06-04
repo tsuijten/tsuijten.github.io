@@ -1,0 +1,84 @@
+seo:
+  title: "Book a speaker — Thijs Suijten on tech for good"
+  description: >-
+    Looking to book Thijs Suijten as a speaker? He takes you on an adventure and
+    shows how technology and AI make the world better. Inspiring and
+    substantive, for a technical and non-technical audience. TEDx speaker.
+
+hero:
+  kicker: "book a speaker"
+  title: "Tech for good, from the stage"
+  intro: >-
+    I take audiences on an adventure to Gabon, Zambia and Zimbabwe and show how
+    technology makes the world a little better. No buzzwords: I build these
+    things myself, so I really know what I'm talking about — and turn it into a
+    story that sticks. Inspiring for anyone who cares about impact, and
+    substantive enough for the engineers in the room.
+  cta:
+    label: "Book me"
+    url: "#boeken"
+
+pitch:
+  label: "why me"
+  items:
+    - title: "Tech for good, no hype"
+      text: >-
+        Real stories about how technology protects nature and people — from
+        elephants in the rainforest to young people online.
+    - title: "Inspires and activates"
+      text: >-
+        The audience comes along on the adventure and leaves with one thought:
+        I can contribute something with my own talent too.
+    - title: "Actually knows the tech"
+      text: >-
+        I build this technology myself, from firmware to cloud. So the substance
+        holds up — while staying easy to follow for a non-technical audience.
+
+tedx:
+  label: "tedxutrecht"
+  title: "From code to conservation: a nerd's quest for meaning"
+  text: >-
+    My TEDx talk about a nerd's quest for meaning — from millions of lines of
+    code to protecting elephants.
+  url: "https://youtu.be/jqrJKl-W_zk"
+  views: "24k+ views"
+  cta: "Watch on YouTube"
+
+topics:
+  label: "what you get"
+  title: "What I talk about"
+  items:
+    - "Tech for good: how AI and technology make a positive impact"
+    - "Stories from the field in Gabon, Zambia and Zimbabwe"
+    - "How to tackle the biggest problems with simple solutions"
+    - "What drives an engineer to do this work"
+  note: "Suitable for a technical and non-technical audience — so, basically everyone 😇"
+
+testimonials:
+  label: "what others say"
+  items:
+    - quote: >-
+        Still feeling inspired after recently seeing Thijs present at the UX
+        Strat conference in Amsterdam. Thijs is an enthusiastic and energising
+        speaker with a fantastic story to tell!
+      name: "Shaun van Oorde-Grainger"
+      role: "Snr. UX Designer @ Philips"
+      avatar: "/images/shaun.webp"
+    - quote: >-
+        Thijs really has a story to tell! With his experience he shows how
+        keeping things simple leads to the most brilliant solutions — technical
+        answers to societal problems. Afterwards you genuinely start thinking
+        about your own work: am I doing the right things, and am I doing them as
+        effectively as possible? Highly recommended.
+      name: "Esther van der Voort"
+      role: "Host & speaker"
+      avatar: "/images/esther.webp"
+
+cta:
+  label: "booking"
+  title: "Need a speaker?"
+  text: >-
+    Keynote, talk or a thought-provoking story at your conference? Drop me a
+    message and we'll figure out what fits.
+  email: "info@suijten.nl"
+  linkedin: "https://www.linkedin.com/in/tsuijten/"

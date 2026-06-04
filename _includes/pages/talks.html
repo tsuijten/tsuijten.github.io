@@ -1,0 +1,95 @@
+{%- assign t = site.data[site.active_lang].talks -%}
+
+<section class="hero hero--page grid-bg">
+  <div class="container narrow">
+    <span class="field-label">// {{ t.hero.kicker }}</span>
+    <h1 class="hero-title hero-title--page">{{ t.hero.title }}</h1>
+    <p class="hero-intro">{{ t.hero.intro }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ t.hero.cta.url }}">{{ t.hero.cta.label }} <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="field-label">// {{ t.pitch.label }}</span>
+    <ul class="card-grid card-grid--3">
+      {%- for item in t.pitch.items -%}
+        <li class="card">
+          <h3 class="card-title">{{ item.title }}</h3>
+          <p>{{ item.text }}</p>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <a class="tedx-feature" href="{{ t.tedx.url }}" target="_blank" rel="noopener">
+      <div class="tedx-feature-media">
+        <img src="/images/thijs-suijten-on-stage-tedx.webp" alt="Thijs Suijten op het TEDx-podium" loading="lazy">
+        <span class="video-play" aria-hidden="true">▶</span>
+      </div>
+      <div class="tedx-feature-copy">
+        <span class="field-label">// {{ t.tedx.label }}</span>
+        <h2 class="section-title">{{ t.tedx.title }}</h2>
+        <p>{{ t.tedx.text }}</p>
+        <span class="tedx-feature-meta mono">
+          <span class="tedx-badge">TEDx</span>
+          <span>{{ t.tedx.views }}</span>
+          <span class="tedx-feature-cta">{{ t.tedx.cta }} ↗</span>
+        </span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {% include watch.html %}
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container narrow">
+    <span class="field-label">// {{ t.topics.label }}</span>
+    <h2 class="section-title">{{ t.topics.title }}</h2>
+    <ul class="topic-list">
+      {%- for item in t.topics.items -%}
+        <li><span class="mono" aria-hidden="true">→</span> {{ item }}</li>
+      {%- endfor -%}
+    </ul>
+    <p class="topic-note">{{ t.topics.note }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="field-label">// {{ t.testimonials.label }}</span>
+    <ul class="quote-grid">
+      {%- for q in t.testimonials.items -%}
+        <li class="quote-card">
+          <blockquote>{{ q.quote }}</blockquote>
+          <figcaption class="quote-author">
+            <img src="{{ q.avatar }}" alt="{{ q.name }}" loading="lazy">
+            <span><strong>{{ q.name }}</strong><br><span class="mono">{{ q.role }}</span></span>
+          </figcaption>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+<section class="section section--alt section--contact" id="boeken">
+  <div class="container narrow contact-block">
+    <span class="field-label">// {{ t.cta.label }}</span>
+    <h2 class="section-title">{{ t.cta.title }}</h2>
+    <p class="section-intro">{{ t.cta.text }}</p>
+    <div class="contact-actions">
+      <a class="btn btn-primary" href="mailto:{{ t.cta.email }}">{{ t.cta.email }}</a>
+      <a class="btn btn-ghost" href="{{ t.cta.linkedin }}" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>

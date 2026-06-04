@@ -1,0 +1,52 @@
+title: Thijs Suijten
+description: >-
+  Engineer die z'n code inzet voor iets groters. Technologie voor natuurbehoud
+  en online veiligheid — van olifanten beschermen in Gabon tot jongeren weerbaar
+  maken online.
+url: https://suijten.nl
+lang: nl
+author: Thijs Suijten
+email: info@suijten.nl
+# Dedicated 1200x630 social-share card (JPG for maximum scraper compatibility)
+image: /images/og-image.jpg
+
+# Used by structured data (JSON-LD) and og tags
+social:
+  linkedin: https://www.linkedin.com/in/tsuijten/
+  ted: https://www.ted.com/talks/thijs_suijten_from_code_to_conservation_a_nerd_s_quest_for_meaning
+
+# --- Localization (jekyll-polyglot) ---
+languages: [nl, en]
+default_lang: nl
+parallel_localization: false
+exclude_from_localization:
+  - assets
+  - images
+  - CNAME
+  - robots.txt
+  - site.webmanifest
+  - favicon.ico
+  - favicon-16x16.png
+  - favicon-32x32.png
+  - apple-touch-icon.png
+  - android-chrome-192x192.png
+  - android-chrome-512x512.png
+
+permalink: pretty
+
+sass:
+  style: compressed
+  sass_dir: _sass
+
+plugins:
+  - jekyll-polyglot
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor
+  - .jekyll-cache
+  - scripts

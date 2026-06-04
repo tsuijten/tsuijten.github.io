@@ -1,0 +1,23 @@
+{%- assign c = site.data[site.active_lang].common -%}
+<footer class="site-footer grid-bg">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="brand-name">{{ c.brand }}</span>
+      <p class="footer-tagline">{{ c.footer.tagline }}</p>
+    </div>
+    <div class="footer-links">
+      <span class="field-label">// {{ c.footer.links_label | remove: "// " }}</span>
+      <ul>
+        {%- for link in c.footer.links -%}
+          <li><a href="{{ link.url }}" rel="noopener"{% if link.url contains "http" %} target="_blank"{% endif %}>{{ link.title }} <span aria-hidden="true">↗</span></a></li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span class="mono">© {{ "now" | date: "%Y" }} · {{ c.footer.rights }}</span>
+    <button class="theme-toggle theme-toggle--text" data-theme-toggle>
+      <span class="mono">{{ c.footer.theme_toggle }}</span>
+    </button>
+  </div>
+</footer>

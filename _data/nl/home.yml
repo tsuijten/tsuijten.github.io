@@ -1,0 +1,148 @@
+seo:
+  title: "Thijs Suijten — engineer die z'n code inzet voor iets groters"
+  description: >-
+    Thijs Suijten is software engineer bij Hack The Planet. Hij zet
+    technologie in voor natuurbehoud en online veiligheid — van olifanten
+    beschermen in Gabon tot jongeren weerbaar maken online.
+
+hero:
+  kicker: "thijs suijten"
+  title_lines:
+    - "Engineer."
+    - "Nerd."
+    - "Tech voor iets groters."
+  intro: >-
+    Ik heb een flink deel van mijn leven code geschreven. Tot het begon te
+    knagen: leuk, al die regels code — maar wat heb ik er nou écht mee bereikt?
+    Nu zet ik diezelfde skills in om olifanten te beschermen, jongeren online
+    weerbaar te maken en te laten zien dat technologie verschil maakt op de meest
+    onverwachte plekken.
+  primary_cta:
+    label: "Wat ik doe"
+    url: "#wat-ik-doe"
+  secondary_cta:
+    label: "Neem contact op"
+    url: "#contact"
+
+story:
+  label: "het verhaal"
+  title: "Van code naar conservation"
+  paragraphs:
+    - >-
+      Als jochie kreeg ik mijn eerste computer (bedankt pa) en was meteen
+      verkocht: gamen én programmeren, een rasechte nerd. Daar is nooit meer iets
+      aan veranderd.
+    - >-
+      Ik heb zo'n beetje alles wel een keer aangeraakt — miljoenen regels code,
+      apps, complexe systemen, ondernemen. Tot die ene vraag bleef hangen: doe ik
+      wel de juiste dingen, en doe ik ze zo nuttig mogelijk?
+    - >-
+      Dat bracht me bij Hack The Planet. Sindsdien gebruik ik
+      technologie voor problemen die er echt toe doen. Geen hypes — gewoon een
+      camera in het bos, een model dat een olifant herkent, en een dorp dat op
+      tijd gewaarschuwd wordt.
+  link:
+    label: "Meer over Hack The Planet"
+    url: "https://www.hack-the-planet.io/nl/"
+  photo:
+    image: "/images/thijs-jeugd-computer.webp"
+    alt: "Thijs als kind achter zijn eerste computer"
+    caption: "Bewijsstuk A: rasechte nerd, eind jaren '90. Dat blije koppie? Had net z'n eerste regel code zien werken."
+
+work:
+  label: "wat ik doe"
+  title: "Technologie, ingezet voor de echte wereld"
+  intro: "Geen toeters en bellen. Wel slimme, simpele oplossingen op plekken waar ze het hardst nodig zijn."
+  items:
+    - number: "01"
+      title: "Dieren beschermen met AI"
+      text: >-
+        Slimme camera's met computer vision die olifanten en neushoorns
+        herkennen, stropers detecteren en mens-dierconflict helpen voorkomen —
+        van het regenwoud in Gabon tot de parken van Zambia en Zimbabwe.
+    - number: "02"
+      title: "Jongeren online weerbaar maken"
+      text: >-
+        Meebouwen aan tools die jongeren bewust maken van online pesten en
+        seksueel misbruik, en die helpen het gesprek daarover op gang te brengen.
+    - number: "03"
+      title: "Bouwen wat er nog niet is"
+      text: >-
+        20+ jaar engineering-ervaring inzetten om dingen te maken die nog niet
+        bestaan — pragmatisch, robuust, en gebouwd om te draaien op de meest
+        afgelegen plekken ter wereld.
+    - number: "04"
+      title: "Het verhaal vertellen"
+      text: >-
+        Op het podium laten zien dat impact maken kán, en anderen aansteken om
+        hun eigen talent voor iets goeds in te zetten.
+
+projects:
+  label: "uit het veld"
+  title: "Een paar plekken waar het samenkomt"
+  intro: >-
+    Bij Hack The Planet ben ik verantwoordelijk voor de complete techniek — van
+    de firmware op een apparaat midden in het bos, tot de cloud-servers en de
+    apps waar mensen mee werken. Een paar projecten waar dat allemaal bij elkaar
+    komt:
+  items:
+    - location: "Lopé NP, Gabon"
+      title: "Camera's die meedenken in het regenwoud"
+      image: "/images/projects/lope-biodiversity.webp"
+      image_alt: "Cameraval in het regenwoud van Lopé National Park, Gabon"
+      text: >-
+        Onderzoekers plaatsen cameravallen diep in het bos en lopen er weken
+        later pas weer naartoe om de beelden op te halen — traag en risicovol.
+        Wij rustten die camera's uit met AI op het apparaat zelf én een
+        satellietverbinding: de camera herkent wat hij ziet en stuurt alleen het
+        relevante meteen door. Deze pilot werd de basis voor wat nu Instant
+        Detect heet.
+      stack: ["firmware", "on-device AI", "satelliet", "cloud"]
+    - location: "South Luangwa, Zambia"
+      title: "Stropers signaleren waar geen netwerk is"
+      image: "/images/projects/zambia-anti-poaching.webp"
+      image_alt: "Ranger en apparatuur in South Luangwa, Zambia"
+      text: >-
+        In een gebied zonder mobiel bereik bouwden we een eigen LoRaWAN-netwerk:
+        sensoren die de radiosignalen van telefoons en radio's van stropers
+        oppikken, blijven maandenlang op zonne-energie online en sturen binnen
+        seconden een alert naar de rangers. Meerdere keren leidde dat tot
+        arrestaties.
+      stack: ["RF-detectie", "LoRaWAN", "solar", "cloud"]
+  link:
+    label: "Al onze projecten zie je op hack-the-planet.io"
+    url: "https://www.hack-the-planet.io/nl/projecten/"
+
+anecdote:
+  label: "favoriete verhaal"
+  quote: "Onze eerste olifant joegen we weg met… Celine Dion."
+  text: >-
+    In Gabon verjagen we olifanten bij dorpen met geluid en muziek, zodat mensen
+    én dieren veilig blijven. De allereerste keer dat het écht lukte? Te danken
+    aan niemand minder dan Celine Dion. Tech for good hoeft niet serieus te zijn
+    om serieus te werken.
+
+talks_teaser:
+  label: "op het podium"
+  title: "Ik vertel er ook graag over"
+  text: >-
+    Van TEDxUtrecht tot tech-conferenties: ik neem het publiek mee op avontuur
+    naar Gabon, Zambia en Zimbabwe en laat zien hoe technologie verschil maakt.
+    Voor een technisch én niet-technisch publiek — iedereen dus eigenlijk.
+  cta:
+    label: "Mij boeken als spreker"
+    url: "/spreker/"
+  video:
+    label: "TEDxUtrecht — From code to conservation"
+    url: "https://youtu.be/jqrJKl-W_zk"
+    views: "24k+ weergaven"
+
+contact:
+  label: "zeg hallo"
+  emoji: "👋"
+  title: "Hallo, met Thijs"
+  text: >-
+    Zin in een goed gesprek over tech-for-good, een vraag, of wil je me boeken
+    als spreker? Stuur gerust een berichtje.
+  email: "info@suijten.nl"
+  linkedin: "https://www.linkedin.com/in/tsuijten/"

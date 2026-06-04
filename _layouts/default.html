@@ -1,0 +1,18 @@
+---
+---
+{% assign c = site.data[site.active_lang].common %}
+<!doctype html>
+<html lang="{{ site.active_lang }}">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  <a class="skip-link" href="#main">{{ c.skip_link }}</a>
+  {% include header.html %}
+  <main id="main">
+    {{ content }}
+  </main>
+  {% include footer.html %}
+  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+</body>
+</html>

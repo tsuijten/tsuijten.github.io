@@ -1,0 +1,35 @@
+language_label: English
+language_short: EN
+
+brand: Thijs Suijten
+brand_tag: "engineer · speaker · tech for good"
+skip_link: Skip to content
+
+# In-language slug per page_id (used by the language switcher and hreflang to
+# map a page to its counterpart in the other language).
+routes:
+  home: "/"
+  talks: "/speaking/"
+
+nav:
+  - title: Story
+    url: "/#verhaal"
+  - title: What I do
+    url: "/#wat-ik-doe"
+  - title: Projects
+    url: "/#projecten"
+  - title: Speaking
+    url: "/speaking/"
+  - title: Contact
+    url: "/#contact"
+
+footer:
+  tagline: "Engineer who puts his code to work for something bigger."
+  links_label: "// find me here"
+  links:
+    - title: LinkedIn
+      url: "https://www.linkedin.com/in/tsuijten/"
+    - title: Hack The Planet
+      url: "https://www.hack-the-planet.io/"
+  rights: "Thijs Suijten"
+  theme_toggle: Switch theme

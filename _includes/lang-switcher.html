@@ -1,0 +1,17 @@
+{%- comment -%}
+  Cross-language links use polyglot's `ferh` attribute: at build time polyglot
+  converts `ferh` to a real `href` WITHOUT adding the active-language prefix.
+  A normal href would be rewritten (e.g. `/` -> `/en/` on the EN page), which
+  would break the switch. So we hand polyglot the exact target via `ferh`.
+{%- endcomment -%}
+{%- for lang in site.languages -%}
+  {%- unless lang == site.active_lang -%}
+    {%- assign route = site.data[lang].common.routes[page.page_id] -%}
+    {%- if lang == "nl" -%}
+      {%- assign target = route -%}
+    {%- else -%}
+      {%- assign target = "/" | append: lang | append: route -%}
+    {%- endif -%}
+    <a class="lang-link" ferh="{{ target }}" hreflang="{{ lang }}">{{ site.data[lang].common.language_short }}</a>
+  {%- endunless -%}
+{%- endfor -%}

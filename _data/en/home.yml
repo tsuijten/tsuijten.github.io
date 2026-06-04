@@ -1,0 +1,143 @@
+seo:
+  title: "Thijs Suijten — engineer who puts his code to work for something bigger"
+  description: >-
+    Thijs Suijten is a software engineer at Hack The Planet. He uses technology
+    for conservation and online safety — from protecting elephants in Gabon to
+    making young people more resilient online.
+
+hero:
+  kicker: "thijs suijten"
+  title_lines:
+    - "Engineer."
+    - "Nerd."
+    - "Tech for something bigger."
+  intro: >-
+    I spent a good chunk of my life writing code. Until something started
+    nagging: nice, all those lines of code — but what have I really achieved
+    with them? Now I put those same skills to work protecting elephants, making
+    young people more resilient online, and showing that technology makes a
+    difference in the most unexpected places.
+  primary_cta:
+    label: "What I do"
+    url: "#wat-ik-doe"
+  secondary_cta:
+    label: "Get in touch"
+    url: "#contact"
+
+story:
+  label: "the story"
+  title: "From code to conservation"
+  paragraphs:
+    - >-
+      As a kid I got my first computer (thanks, Dad) and was instantly hooked:
+      gaming and programming, a die-hard nerd. That never really changed.
+    - >-
+      I've touched pretty much everything — millions of lines of code, apps,
+      complex systems, running a business. Until one question kept nagging: am I
+      doing the right things, and am I doing them as usefully as I can?
+    - >-
+      That brought me to Hack The Planet. Since then I use technology for
+      problems that genuinely matter. No hype — just a camera in the forest, a
+      model that recognises an elephant, and a village that gets warned in time.
+  link:
+    label: "More about Hack The Planet"
+    url: "https://www.hack-the-planet.io/"
+  photo:
+    image: "/images/thijs-jeugd-computer.webp"
+    alt: "Thijs as a kid behind his first computer"
+    caption: "Exhibit A: a die-hard nerd, late '90s. That happy face? Had just seen his first line of code actually work."
+
+work:
+  label: "what i do"
+  title: "Technology, put to work in the real world"
+  intro: "No bells and whistles. Just smart, simple solutions in the places that need them most."
+  items:
+    - number: "01"
+      title: "Protecting animals with AI"
+      text: >-
+        Smart cameras with computer vision that recognise elephants and rhinos,
+        detect poachers and help prevent human-wildlife conflict — from the
+        rainforest in Gabon to the parks of Zambia and Zimbabwe.
+    - number: "02"
+      title: "Making young people more resilient online"
+      text: >-
+        Helping build tools that make young people aware of online bullying and
+        sexual abuse, and that help get the conversation started.
+    - number: "03"
+      title: "Building what doesn't exist yet"
+      text: >-
+        Putting 20+ years of engineering experience to work building things that
+        don't exist yet — pragmatic, robust, and made to run in the most remote
+        places on earth.
+    - number: "04"
+      title: "Telling the story"
+      text: >-
+        Showing from the stage that making an impact is possible, and inspiring
+        others to put their own talent to work for good.
+
+projects:
+  label: "from the field"
+  title: "A few places where it all comes together"
+  intro: >-
+    At Hack The Planet I'm responsible for the entire tech stack — from the
+    firmware on a device in the middle of the forest, to the cloud servers and
+    the apps people work with. A few projects where that all comes together:
+  items:
+    - location: "Lopé NP, Gabon"
+      title: "Cameras that think for themselves in the rainforest"
+      image: "/images/projects/lope-biodiversity.webp"
+      image_alt: "Camera trap in the rainforest of Lopé National Park, Gabon"
+      text: >-
+        Researchers place camera traps deep in the forest and only return weeks
+        later to collect the footage — slow and risky. We fitted those cameras
+        with AI on the device itself plus a satellite connection: the camera
+        recognises what it sees and sends through only what matters, instantly.
+        This pilot became the foundation for what's now called Instant Detect.
+      stack: ["firmware", "on-device AI", "satellite", "cloud"]
+    - location: "South Luangwa, Zambia"
+      title: "Spotting poachers where there's no network"
+      image: "/images/projects/zambia-anti-poaching.webp"
+      image_alt: "Ranger and equipment in South Luangwa, Zambia"
+      text: >-
+        In an area with no mobile coverage we built our own LoRaWAN network:
+        sensors that pick up the radio signals from poachers' phones and radios
+        stay online for months on solar power and send an alert to the rangers
+        within seconds. More than once that led to arrests.
+      stack: ["RF detection", "LoRaWAN", "solar", "cloud"]
+  link:
+    label: "See all our projects on hack-the-planet.io"
+    url: "https://www.hack-the-planet.io/projects/"
+
+anecdote:
+  label: "favourite story"
+  quote: "We scared off our first elephant with… Celine Dion."
+  text: >-
+    In Gabon we keep elephants away from villages with sound and music, so
+    people and animals both stay safe. The very first time it actually worked?
+    Thanks to none other than Celine Dion. Tech for good doesn't have to be
+    serious to work seriously.
+
+talks_teaser:
+  label: "on stage"
+  title: "I love talking about it too"
+  text: >-
+    From TEDxUtrecht to tech conferences: I take the audience on an adventure to
+    Gabon, Zambia and Zimbabwe and show how technology makes a difference. For a
+    technical and non-technical audience alike — so, basically everyone.
+  cta:
+    label: "Book me as a speaker"
+    url: "/speaking/"
+  video:
+    label: "TEDxUtrecht — From code to conservation"
+    url: "https://youtu.be/jqrJKl-W_zk"
+    views: "24k+ views"
+
+contact:
+  label: "say hi"
+  emoji: "👋"
+  title: "Hi, Thijs here"
+  text: >-
+    Up for a good conversation about tech for good, got a question, or want to
+    book me as a speaker? Drop me a message.
+  email: "info@suijten.nl"
+  linkedin: "https://www.linkedin.com/in/tsuijten/"

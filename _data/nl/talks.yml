@@ -1,0 +1,84 @@
+seo:
+  title: "Spreker boeken — Thijs Suijten over tech for good"
+  description: >-
+    Thijs Suijten boeken als spreker? Hij neemt je mee op avontuur en laat zien
+    hoe technologie en AI de wereld beter maken. Inspirerend én inhoudelijk
+    sterk, voor een technisch en niet-technisch publiek. TEDx-spreker.
+
+hero:
+  kicker: "spreker boeken"
+  title: "Tech for good, van het podium"
+  intro: >-
+    Ik neem het publiek mee op avontuur naar Gabon, Zambia en Zimbabwe en laat
+    zien hoe technologie de wereld een beetje beter maakt. Geen buzzwords: ik
+    bouw deze dingen zelf, dus ik weet écht waar ik het over heb — en vertaal
+    het naar een verhaal dat blijft hangen. Inspirerend voor wie warmloopt voor
+    impact, en inhoudelijk genoeg voor de techneuten in de zaal.
+  cta:
+    label: "Mij boeken"
+    url: "#boeken"
+
+pitch:
+  label: "waarom mij"
+  items:
+    - title: "Tech for good, geen hype"
+      text: >-
+        Echte verhalen over hoe technologie natuur en mensen beschermt — van
+        olifanten in het regenwoud tot jongeren online.
+    - title: "Inspireert én activeert"
+      text: >-
+        Het publiek gaat mee op avontuur en loopt weg met één gedachte: met mijn
+        eigen talent kan ik ook iets bijdragen.
+    - title: "Weet waar 'ie het over heeft"
+      text: >-
+        Ik bouw deze techniek zelf, van firmware tot cloud. De inhoud klopt dus —
+        en blijft te volgen voor een niet-technisch publiek.
+
+tedx:
+  label: "tedxutrecht"
+  title: "From code to conservation: a nerd's quest for meaning"
+  text: >-
+    Mijn TEDx-talk over de zoektocht van een nerd naar betekenis — van miljoenen
+    regels code naar het beschermen van olifanten.
+  url: "https://youtu.be/jqrJKl-W_zk"
+  views: "24k+ weergaven"
+  cta: "Bekijk op YouTube"
+
+topics:
+  label: "wat je krijgt"
+  title: "Waar ik het over heb"
+  items:
+    - "Tech for good: hoe AI en technologie een positieve impact maken"
+    - "Verhalen uit het veld in Gabon, Zambia en Zimbabwe"
+    - "Hoe je met simpele oplossingen de grootste problemen tackelt"
+    - "Wat een techneut drijft om dit werk te doen"
+  note: "Geschikt voor een technisch én niet-technisch publiek — iedereen dus eigenlijk 😇"
+
+testimonials:
+  label: "wat anderen zeggen"
+  items:
+    - quote: >-
+        Still feeling inspired after recently seeing Thijs present at the UX
+        Strat conference in Amsterdam. Thijs is an enthusiastic and energising
+        speaker with a fantastic story to tell!
+      name: "Shaun van Oorde-Grainger"
+      role: "Snr. UX Designer @ Philips"
+      avatar: "/images/shaun.webp"
+    - quote: >-
+        Thijs heeft echt een verhaal! Met zijn ervaring laat hij zien hoe je
+        juist door het simpel te houden tot de briljantste oplossingen komt —
+        technische oplossingen voor maatschappelijke problemen. Na afloop ga je
+        echt nadenken over je eigen werk: doe ik de juiste dingen, en doe ik ze
+        zo effectief mogelijk? Een aanrader.
+      name: "Esther van der Voort"
+      role: "Dagvoorzitter & spreker"
+      avatar: "/images/esther.webp"
+
+cta:
+  label: "boeken"
+  title: "Een spreker nodig?"
+  text: >-
+    Keynote, lezing of een prikkelend verhaal op je congres? Stuur een berichtje,
+    dan kijken we samen wat past.
+  email: "info@suijten.nl"
+  linkedin: "https://www.linkedin.com/in/tsuijten/"
