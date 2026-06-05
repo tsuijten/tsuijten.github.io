@@ -93,21 +93,22 @@ projects:
       image: "/images/projects/lope-biodiversity.webp"
       image_alt: "Camera trap in the rainforest of Lopé National Park, Gabon"
       text: >-
-        Researchers place camera traps deep in the forest and only return weeks
-        later to collect the footage — slow and risky. We fitted those cameras
-        with AI on the device itself plus a satellite connection: the camera
-        recognises what it sees and sends through only what matters, instantly.
-        This pilot became the foundation for what's now called Instant Detect.
+        Researchers hung camera traps deep in the rainforest and could only
+        return weeks later to collect the footage — slow and risky. I built
+        cameras with AI on board and a satellite connection: it recognises what
+        it sees and sends through only what matters, instantly. This pilot became
+        the foundation for the smart cameras we now deploy worldwide.
       stack: ["firmware", "on-device AI", "satellite", "cloud"]
     - location: "South Luangwa, Zambia"
       title: "Spotting poachers where there's no network"
       image: "/images/projects/zambia-anti-poaching.webp"
       image_alt: "Ranger and equipment in South Luangwa, Zambia"
       text: >-
-        In an area with no mobile coverage we built our own LoRaWAN network:
-        sensors that pick up the radio signals from poachers' phones and radios
-        stay online for months on solar power and send an alert to the rangers
-        within seconds. More than once that led to arrests.
+        How do you track poachers across such vast, remote areas? I built a
+        sensor that detects the phones poachers carry. The moment it picks one
+        up, the rangers get an alert — now they know where people are. Fully
+        solar-powered, in places with no coverage at all. More than once that
+        led to an arrest.
       stack: ["RF detection", "LoRaWAN", "solar", "cloud"]
   link:
     label: "See all our projects on hack-the-planet.io"
@@ -157,7 +158,7 @@ history:
     - year: "then"
       text: "Worked on all kinds of (lean) startups. That's where my tech-for-good mindset really started to surface."
     - year: "2015"
-      text: "Left my own company — not easy — and joined Q42. There I built apps used by millions every day, like PostNL, the Rijksmuseum, 9292 and Wie is de Mol."
+      text: "Left my own company — not easy — and joined Q42. There I built apps used by millions every day, like PostNL, the Rijksmuseum and 9292."
     - year: "2019 - now"
       text: "It started nagging again: am I doing something that truly matters? At Hack The Planet I put my skills to work for nature and people."
 

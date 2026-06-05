@@ -96,23 +96,23 @@ projects:
       image: "/images/projects/lope-biodiversity.webp"
       image_alt: "Cameraval in het regenwoud van Lopé National Park, Gabon"
       text: >-
-        Onderzoekers plaatsen cameravallen diep in het bos en lopen er weken
-        later pas weer naartoe om de beelden op te halen — traag en risicovol.
-        Wij rustten die camera's uit met AI op het apparaat zelf én een
-        satellietverbinding: de camera herkent wat hij ziet en stuurt alleen het
-        relevante meteen door. Deze pilot werd de basis voor wat nu Instant
-        Detect heet.
+        Onderzoekers hangen cameravallen diep in het regenwoud en kunnen er pas
+        weken later weer naartoe om de beelden op te halen — traag en risicovol.
+        Ik bouwde camera's met AI áán boord én een satellietverbinding: hij
+        herkent zelf wat hij ziet en stuurt alleen het belangrijke meteen door.
+        Deze pilot werd de basis voor de slimme camera's die we nu wereldwijd
+        inzetten.
       stack: ["firmware", "on-device AI", "satelliet", "cloud"]
     - location: "South Luangwa, Zambia"
       title: "Stropers signaleren waar geen netwerk is"
       image: "/images/projects/zambia-anti-poaching.webp"
       image_alt: "Ranger en apparatuur in South Luangwa, Zambia"
       text: >-
-        In een gebied zonder mobiel bereik bouwden we een eigen LoRaWAN-netwerk:
-        sensoren die de radiosignalen van telefoons en radio's van stropers
-        oppikken, blijven maandenlang op zonne-energie online en sturen binnen
-        seconden een alert naar de rangers. Meerdere keren leidde dat tot
-        arrestaties.
+        Hoe spoor je stropers op in zulke uitgestrekte gebieden? Ik ontwikkelde
+        een sensor die de telefoons detecteert die stropers bij zich dragen.
+        Pikt 'ie er een op, dan krijgen de rangers meteen een seintje — nu weten
+        ze waar er mensen zijn. Volledig op zonne-energie, op plekken zonder
+        enig bereik. Meerdere keren leidde dat tot een arrestatie.
       stack: ["RF-detectie", "LoRaWAN", "solar", "cloud"]
   link:
     label: "Al onze projecten zie je op hack-the-planet.io"
