@@ -150,7 +150,7 @@ h1, h2, h3 {
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1rem; }
 
 .brand { text-decoration: none; display: flex; flex-direction: column; gap: 5px; line-height: 1.1; }
-.brand-name { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1.15rem; }
+.brand-name { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1.15rem; color: var(--ink); }
 .brand-tag { font-size: .72rem; color: var(--muted); letter-spacing: .04em; }
 
 .site-nav { display: flex; align-items: center; gap: 1.4rem; }
