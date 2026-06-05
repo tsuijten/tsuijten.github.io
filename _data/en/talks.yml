@@ -34,6 +34,22 @@ pitch:
         I build this technology myself, from firmware to cloud. So the substance
         holds up — while staying easy to follow for a non-technical audience.
 
+talk:
+  label: "talks"
+  title: "On work that matters, elephants and Celine Dion"
+  paragraphs:
+    - >-
+      It starts in a remote ranger camp in Zambia, at sunset — until Celine Dion
+      suddenly blasts across the savanna. From that bizarre evening I take the
+      audience to the biggest question underneath our work: am I actually doing
+      something that matters?
+    - >-
+      I tell how a die-hard nerd went from millions of lines of code to
+      protecting elephants in Africa, and why meaningful work turned out to be
+      the key to job happiness. Honest, with humour, and with cameras and an
+      elephant deterrent as proof from the field.
+  quote: "The biggest investment of your life isn't your house or your car. It's your time — and you spend a third of it at work. So you'd better spend it on something that truly matters."
+
 tedx:
   label: "tedxutrecht"
   title: "From code to conservation: a nerd's quest for meaning"
@@ -53,6 +69,21 @@ topics:
     - "How to tackle the biggest problems with simple solutions"
     - "What drives an engineer to do this work"
   note: "Suitable for a technical and non-technical audience — so, basically everyone 😇"
+
+questions:
+  label: "what your audience takes home"
+  title: "Three questions to take home"
+  intro: "Not an abstract story: the audience leaves with three concrete questions to ask themselves."
+  items:
+    - number: "01"
+      q: "What does the world need?"
+      text: "Look around and there are more than enough problems worth sinking your teeth into."
+    - number: "02"
+      q: "What truly fires you up?"
+      text: "Something you genuinely care about — and the realisation that you can actually do something about it."
+    - number: "03"
+      q: "How will you put your talent and time to work?"
+      text: "Start small: call a non-profit, join a hackathon, and see where it takes you."
 
 testimonials:
   label: "what others say"

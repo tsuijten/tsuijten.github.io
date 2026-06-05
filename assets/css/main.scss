@@ -149,20 +149,29 @@ h1, h2, h3 {
 }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1rem; }
 
-.brand { text-decoration: none; display: flex; flex-direction: column; line-height: 1.1; }
+.brand { text-decoration: none; display: flex; flex-direction: column; gap: 5px; line-height: 1.1; }
 .brand-name { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1.15rem; }
 .brand-tag { font-size: .72rem; color: var(--muted); letter-spacing: .04em; }
 
 .site-nav { display: flex; align-items: center; gap: 1.4rem; }
+/* Monospace nav for a terminal/techy feel, with an underline draw and a
+   blinking cursor on hover. */
 .nav-link {
-  text-decoration: none; font-weight: 500; font-size: .98rem; color: var(--ink);
-  position: relative; padding-bottom: 2px;
+  font-family: "JetBrains Mono", monospace; font-size: .82rem; letter-spacing: .01em;
+  text-decoration: none; color: var(--ink);
+  position: relative; padding-bottom: 4px; transition: color .15s ease;
+}
+.nav-link::before {
+  content: ""; position: absolute; left: 0; bottom: 0; height: 2px; width: 0;
+  background: var(--accent); transition: width .22s ease;
 }
 .nav-link::after {
-  content: ""; position: absolute; left: 0; bottom: -2px; width: 0; height: 2px;
-  background: var(--accent); transition: width .2s ease;
+  content: "_"; color: var(--accent); margin-left: 2px; opacity: 0;
 }
-.nav-link:hover::after { width: 100%; }
+.nav-link:hover { color: var(--accent); }
+.nav-link:hover::before { width: 100%; }
+.nav-link:hover::after { opacity: 1; animation: caret-blink 1s steps(1) infinite; }
+@keyframes caret-blink { 50% { opacity: 0; } }
 .nav-divider { width: 1px; height: 20px; background: var(--line); }
 
 .nav-actions { display: flex; align-items: center; gap: 1.4rem; }
@@ -304,6 +313,42 @@ h1, h2, h3 {
 .media-card h3 { font-size: 1.25rem; }
 .media-card p { margin: 0; color: var(--muted); }
 
+/* ---------- statement band (home) — big, outspoken ---------- */
+.section--statement {
+  background: var(--ink); color: #f3eee1; text-align: center;
+  padding-block: clamp(4rem, 9vw, 7rem); position: relative; overflow: hidden;
+}
+[data-theme="dark"] .section--statement { background: #0b0d07; border-block: 1px solid var(--line); }
+/* oversized decorative quote mark in the background */
+.section--statement::before {
+  content: "“"; position: absolute; top: -.35em; left: 50%; transform: translateX(-50%);
+  font-family: "Space Grotesk", sans-serif; font-size: clamp(10rem, 26vw, 20rem);
+  line-height: 1; color: var(--accent); opacity: .12; pointer-events: none;
+}
+.section--statement .field-label { color: var(--accent); margin-inline: auto; position: relative; }
+.statement-quote {
+  position: relative;
+  font-family: "Space Grotesk", sans-serif; font-weight: 700;
+  font-size: clamp(1.9rem, 5vw, 3.1rem); line-height: 1.12; letter-spacing: -.02em;
+  margin: 1rem auto 0; max-width: 22ch; text-wrap: balance;
+}
+.statement-quote .accent { color: var(--accent); }
+
+/* ---------- three-questions list (home) ---------- */
+.qlist { list-style: none; margin: .5rem 0 0; padding: 0; }
+.qlist li { padding: 1.15rem 0; border-bottom: 1px dashed var(--line); }
+.qlist .q { margin: 0; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 1.2rem; }
+.qlist .qnum { color: var(--accent); font-size: .85rem; margin-right: .7rem; }
+.qlist li > p:last-child { margin: .3rem 0 0; color: var(--muted); }
+
+/* ---------- pull quote (spreker: over de talk) ---------- */
+.pull-quote {
+  font-family: "Space Grotesk", sans-serif; font-weight: 600;
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem); line-height: 1.3;
+  margin: 1.75rem 0 0; padding-left: 1.1rem; border-left: 3px solid var(--accent);
+  color: var(--ink);
+}
+
 /* ---------- anecdote ---------- */
 .anecdote {
   margin: 0; padding: 2rem; border-left: 4px solid var(--accent);
@@ -431,6 +476,7 @@ h1, h2, h3 {
     display: block; width: 100%; padding: 1rem .25rem; font-size: 1.1rem;
     border-bottom: 1px solid var(--line);
   }
+  .site-nav .nav-link::before,
   .site-nav .nav-link::after { display: none; }
   .nav-actions { width: 100%; justify-content: space-between; margin-top: 1.25rem; }
   /* story: photo below the text on mobile (flex order) */

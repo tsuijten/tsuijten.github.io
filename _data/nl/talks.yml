@@ -19,7 +19,7 @@ hero:
     url: "#boeken"
 
 pitch:
-  label: "waarom mij"
+  label: "waarom ik"
   items:
     - title: "Tech for good, geen hype"
       text: >-
@@ -33,6 +33,22 @@ pitch:
       text: >-
         Ik bouw deze techniek zelf, van firmware tot cloud. De inhoud klopt dus —
         en blijft te volgen voor een niet-technisch publiek.
+
+talk:
+  label: "talks"
+  title: "Van werkgeluk, olifanten en Celine Dion"
+  paragraphs:
+    - >-
+      Het begint in een primitief rangerkamp in Zambia, bij zonsondergang — tot
+      er opeens keihard Celine Dion over de savanne schalt. Vanuit die bizarre
+      avond neem ik het publiek mee naar de grootste vraag onder ons werk: doe
+      ik eigenlijk iets dat er écht toe doet?
+    - >-
+      Ik vertel hoe ik als doorgewinterde nerd van miljoenen regels code
+      belandde bij het beschermen van olifanten in Afrika, en waarom
+      betekenisvol werk dé sleutel bleek tot werkgeluk. Eerlijk, met humor, en
+      met camera's en een olifantenverschrikker als bewijs uit het veld.
+  quote: "De grootste investering van je leven is niet je huis of je auto. Het is je tijd — en ⅓ daarvan besteed je aan werk. Dus kun je 'm maar beter besteden aan iets dat er echt toe doet."
 
 tedx:
   label: "tedxutrecht"
@@ -53,6 +69,21 @@ topics:
     - "Hoe je met simpele oplossingen de grootste problemen tackelt"
     - "Wat een techneut drijft om dit werk te doen"
   note: "Geschikt voor een technisch én niet-technisch publiek — iedereen dus eigenlijk 😇"
+
+questions:
+  label: "wat je publiek meeneemt"
+  title: "Drie vragen om mee naar huis te nemen"
+  intro: "Geen abstract verhaal: het publiek loopt naar buiten met drie concrete vragen om zichzelf te stellen."
+  items:
+    - number: "01"
+      q: "Wat heeft de wereld nodig?"
+      text: "Kijk je om je heen, dan zijn er problemen genoeg om je tanden in te zetten."
+    - number: "02"
+      q: "Waar word jij echt warm van?"
+      text: "Iets waar je je oprecht kwaad om maakt — én het besef dat je er wél iets aan kunt doen."
+    - number: "03"
+      q: "Hoe zet je je talent én tijd in?"
+      text: "Begin klein: bel een non-profit, doe mee aan een hackathon, en kijk waar het je brengt."
 
 testimonials:
   label: "wat anderen zeggen"

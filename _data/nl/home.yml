@@ -77,6 +77,11 @@ work:
         Op het podium laten zien dat impact maken kán, en anderen aansteken om
         hun eigen talent voor iets goeds in te zetten.
 
+statement:
+  label: "waarom"
+  text: "Hoe tof je werkplek ook is — geen glijbaan ter wereld zorgt voor werkgeluk."
+  emphasis: "Je skills inzetten voor iets waar je écht in gelooft, dát maakt het verschil."
+
 projects:
   label: "uit het veld"
   title: "Een paar plekken waar het samenkomt"
@@ -136,6 +141,11 @@ talks_teaser:
     label: "TEDxUtrecht — From code to conservation"
     url: "https://youtu.be/jqrJKl-W_zk"
     views: "24k+ weergaven"
+
+inspire:
+  label: "zelf aan de slag"
+  title: "Zin om je eigen talent in te zetten?"
+  intro: "Stel jezelf eens deze drie vragen — dezelfde die ik op het podium meegeef."
 
 contact:
   label: "zeg hallo"

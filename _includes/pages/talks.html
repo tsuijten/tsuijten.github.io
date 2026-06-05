@@ -26,6 +26,17 @@
 </section>
 
 <section class="section section--alt">
+  <div class="container narrow">
+    <span class="field-label">// {{ t.talk.label }}</span>
+    <h2 class="section-title">{{ t.talk.title }}</h2>
+    <div class="prose">
+      {%- for p in t.talk.paragraphs -%}<p>{{ p }}</p>{%- endfor -%}
+    </div>
+    <p class="pull-quote">{{ t.talk.quote }}</p>
+  </div>
+</section>
+
+<section class="section">
   <div class="container">
     <a class="tedx-feature" href="{{ t.tedx.url }}" target="_blank" rel="noopener">
       <div class="tedx-feature-media">
@@ -46,13 +57,13 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section section--alt">
   <div class="container">
     {% include watch.html %}
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section">
   <div class="container narrow">
     <span class="field-label">// {{ t.topics.label }}</span>
     <h2 class="section-title">{{ t.topics.title }}</h2>
@@ -62,6 +73,23 @@
       {%- endfor -%}
     </ul>
     <p class="topic-note">{{ t.topics.note }}</p>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <span class="field-label">// {{ t.questions.label }}</span>
+    <h2 class="section-title">{{ t.questions.title }}</h2>
+    <p class="section-intro">{{ t.questions.intro }}</p>
+    <ul class="card-grid card-grid--3">
+      {%- for q in t.questions.items -%}
+        <li class="card">
+          <span class="card-number mono">{{ q.number }}</span>
+          <h3 class="card-title">{{ q.q }}</h3>
+          <p>{{ q.text }}</p>
+        </li>
+      {%- endfor -%}
+    </ul>
   </div>
 </section>
 

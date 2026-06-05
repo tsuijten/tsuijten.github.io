@@ -75,6 +75,11 @@ work:
         Showing from the stage that making an impact is possible, and inspiring
         others to put their own talent to work for good.
 
+statement:
+  label: "why"
+  text: "However cool your workplace is — no slide in the world makes work meaningful."
+  emphasis: "Putting your skills to work for something you truly believe in: that's what makes the difference."
+
 projects:
   label: "from the field"
   title: "A few places where it all comes together"
@@ -131,6 +136,11 @@ talks_teaser:
     label: "TEDxUtrecht — From code to conservation"
     url: "https://youtu.be/jqrJKl-W_zk"
     views: "24k+ views"
+
+inspire:
+  label: "your turn"
+  title: "Want to put your own talent to work?"
+  intro: "Ask yourself these three questions — the same ones I share from the stage."
 
 contact:
   label: "say hi"

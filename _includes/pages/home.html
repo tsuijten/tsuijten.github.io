@@ -60,6 +60,13 @@
   </div>
 </section>
 
+<section class="section section--statement">
+  <div class="container narrow statement">
+    <span class="field-label">// {{ t.statement.label }}</span>
+    <p class="statement-quote">{{ t.statement.text }} <span class="accent">{{ t.statement.emphasis }}</span></p>
+  </div>
+</section>
+
 <section class="section" id="projecten">
   <div class="container">
     <span class="field-label">// {{ t.projects.label }}</span>
@@ -135,6 +142,22 @@
 </section>
 
 <section class="section">
+  <div class="container narrow">
+    <span class="field-label">// {{ t.inspire.label }}</span>
+    <h2 class="section-title">{{ t.inspire.title }}</h2>
+    <p class="section-intro">{{ t.inspire.intro }}</p>
+    <ul class="qlist">
+      {%- for item in site.data[site.active_lang].talks.questions.items -%}
+        <li>
+          <p class="q"><span class="qnum mono">{{ item.number }}</span>{{ item.q }}</p>
+          <p>{{ item.text }}</p>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+<section class="section section--alt">
   <div class="container">
     {% include watch.html %}
   </div>
