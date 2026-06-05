@@ -374,12 +374,16 @@ h1, h2, h3 {
 .terminal-body {
   padding: 1.1rem 1.25rem 1.25rem;
   color: var(--term-text); line-height: 1.7;
-  overflow: auto;                 /* max-height is set by JS so the intro always fits */
+  /* Until you interact, it grows with its content and the *page* scrolls (so it
+     never hijacks touch scrolling). Once you focus the prompt to type, JS locks
+     the height and flips overflow to auto, making the terminal itself scroll. */
+  overflow: hidden;
   scrollbar-width: thin; scrollbar-color: var(--term-line) transparent;
 }
 .terminal-body::-webkit-scrollbar { width: 9px; height: 9px; }
 .terminal-body::-webkit-scrollbar-thumb { background: var(--term-line); border-radius: 6px; }
-.t-cmd { margin: 0; white-space: nowrap; }
+.t-cmd { margin: 0; overflow-wrap: anywhere; }
+.t-prompt { white-space: nowrap; }   /* keep ~$ glued together */
 .t-path { color: #79b294; }       /* moss-green prompt, classic shell */
 .t-punc { color: var(--term-dim); }
 .t-input { color: var(--term-text); }

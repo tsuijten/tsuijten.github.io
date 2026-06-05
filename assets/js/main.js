@@ -80,21 +80,23 @@
 
     if (body && output && form && input) {
       const careerLog = output.querySelector('.t-log').cloneNode(true);
-      const scrollDown = () => { body.scrollTop = body.scrollHeight; };
       const pick = (a) => a[Math.floor(Math.random() * a.length)];
 
-      // Lock the terminal to exactly the height of the original content: the
-      // intro is always fully visible, and anything you type beyond it scrolls
-      // internally (instead of growing the box and pushing the prompt away).
-      let pristine = true;
-      let introHeight = body.scrollHeight;
-      const applyCap = () => {
-        if (pristine) introHeight = body.scrollHeight;   // track the intro until the first command
-        body.style.maxHeight = introHeight + 'px';
+      // Before you interact, the terminal grows and the *page* scrolls (so it
+      // never hijacks touch scrolling). The moment you focus the prompt to type,
+      // it locks its height and becomes its own scroll container.
+      let live = false;
+      const goLive = () => {
+        if (live) return;
+        live = true;
+        body.style.maxHeight = body.scrollHeight + 'px';
+        body.style.overflow = 'auto';
       };
-      applyCap();
-      window.addEventListener('resize', applyCap, { passive: true });
-      window.addEventListener('load', applyCap);          // re-measure once webfonts settle
+      const scrollDown = () => {
+        if (live) body.scrollTop = body.scrollHeight;
+        else form.scrollIntoView({ block: 'nearest' });
+      };
+      input.addEventListener('focus', goLive);
 
       // echo the typed command back as a prompt line
       const echo = (text) => {
@@ -106,21 +108,31 @@
         p.append(a, b, c);
         output.appendChild(p);
       };
-      // print a result block (textContent → safe from any injection)
+      // print a result block, one line at a time with a small delay (textContent
+      // → safe from any injection). Lines accumulate in a single pre-wrap block
+      // so multi-line ASCII art still lines up.
+      const LINE_DELAY = 70;   // ms between printed output lines
       const out = (text) => {
         if (!text) return;
+        const lines = String(text).split('\n');
         const d = document.createElement('div');
         d.className = 't-out t-block';
-        d.textContent = text;
         output.appendChild(d);
+        lines.forEach((ln, i) => {
+          setTimeout(() => {
+            d.textContent += (i ? '\n' : '') + ln;
+            scrollDown();
+          }, i * LINE_DELAY);
+        });
       };
 
-      const FILES = 'career.log   elephants/   secrets.env   passwords.txt   todo.md   not_a_virus.exe   ascii_cat.png';
+      const FILES = 'career.bin   elephants/   secrets.env   passwords.txt   todo.md   not_a_virus.exe   ascii_cat.txt';
       const CAT = ' /\\_/\\\n( o.o )\n > ^ <\nmeow. (the only cat this terminal ships with)';
       const TRAIN = '      ====        ________\n  _D _|  |_______/        \\__\n   |(_)---  |   H\\________/ |\n   /     |  |   H  |  |     |\nchoo choo! 🚂  you typed `sl`. did you mean `ls`?';
       const HACK = 'H A C K   T H E   P L A N E T   🌍\n--------------------------------\nNot a slogan. The actual day job.\n→ hack-the-planet.io';
       const ELEPHANT = '    __     __\n   /  \\~~~/  \\\n  (  o     o  )\n   \\   \\_/   /\n    |__| |__|\n🐘 spotted, logged, left in peace. that is the whole point.';
       const CELINE = 'now playing: ♫ My Heart Will Go On ♫\n🐘 ...and the elephant calmly wandered off, away from the village.\n(yes — this genuinely happened in Gabon.)';
+      const VIRUS = 'Running not_a_virus.exe...\n[##--------] downloading more RAM...\n[#####-----] mining 1 (one) bitcoin...\n[########--] emailing your browser history to your mum...\n[##########] done!\n\njust kidding 😇 nothing happened. (it\'s a static website, not Windows.)';
 
       const FORTUNES = [
         'A camera in the forest is worth a thousand patrols.',
@@ -154,10 +166,13 @@
         const name = (argStr.match(/["']([^"']*)["']/)?.[1] ?? argStr).trim();
         if (!name) { out('usage: ./show_history "<name>"\ntry:   ./show_history "Thijs Suijten"'); return; }
         if (name.toLowerCase().includes('thijs')) {
-          out('Loading career.log for "' + name + '"...');
+          out('Loading career.bin for "' + name + '"...');
           const clone = careerLog.cloneNode(true);
           clone.classList.add('t-block');
+          const items = [...clone.querySelectorAll('.t-line')];
+          items.forEach((li) => { li.style.opacity = '0'; li.style.transition = 'opacity .18s ease'; });
           output.appendChild(clone);
+          items.forEach((li, i) => setTimeout(() => { li.style.opacity = '1'; scrollDown(); }, (i + 1) * LINE_DELAY));
           return;
         }
         out('No records found for "' + name + '".\nThis terminal knows exactly one legend: Thijs Suijten.\nTry: ./show_history "Thijs Suijten"');
@@ -186,14 +201,19 @@
         ls: ls,
         dir: ls,
         cat: (a) => {
-          const f = a.replace(/^\.\//, '').trim().toLowerCase();
+          const f = a.trim().replace(/^\.\//, '').replace(/\/$/, '').toLowerCase();
           const files = {
             'secrets.env': '# nice try 😏',
             'passwords.txt': 'hunter2\n(yes, everyone but you can read those asterisks)',
             'todo.md': '- [x] protect elephants\n- [x] keep kids safer online\n- [ ] finally exit vim',
-            'career.log': 'Binary file. Run:  ./show_history "Thijs Suijten"',
-            'ascii_cat.png': CAT,
+            'career.bin': 'Binary file — not shown. Run:  ./show_history "Thijs Suijten"',
+            'ascii_cat.txt': CAT,
             'not_a_virus.exe': 'Running... just kidding. (also: never run a file named this)',
+            '.bashrc': 'alias work="protect elephants 🐘"\nexport PURPOSE=tech_for_good\n# perfectly normal, very cool config, nothing to see here',
+            '.hopes_and_dreams': 'a world where technology is used for good more often than not. 🌍\n(and, one day, to truly exit vim.)',
+            '.secret_elephant_plans': '🐘 step 1: keep them safe.\n🐘 step 2: there is no step 2. that was the entire plan.',
+            '.ssh': 'cat: .ssh: Is a directory — full of keys you really should not be reading. 🔑',
+            '.git': 'cat: .git: Is a directory. trust me, raw git internals are not the easter egg you want.',
           };
           if (!f) return 'usage: cat <file>   (no actual cats were harmed)';
           return files[f] || ('cat: ' + a + ': No such file — but it sounds important.');
@@ -255,7 +275,7 @@
       };
 
       const runLine = (raw) => {
-        pristine = false;          // lock the height floor to the original content
+        goLive();                  // ensure we're a scroll container before output piles up
         const line = raw.trim();
         echo(raw.replace(/\s+$/, ''));
         if (!line) { scrollDown(); return; }
@@ -272,6 +292,43 @@
         if (lower === 'sudo make me a sandwich') { out('Okay. 🥪'); scrollDown(); return; }
         if (lower === 'make me a sandwich') { out('What? Make it yourself.'); scrollDown(); return; }
         if (lower === 'meaning of life' || line === '42') { out('42. Obviously.'); scrollDown(); return; }
+
+        // anything aimed at the elephants/ "directory" is gently refused 🐘
+        if (/\belephants?\b/.test(argStr.toLowerCase())) {
+          if (cmd === 'cd') { out(ELEPHANT + '\n\ncd: elephants/: access denied — we leave them in peace. 🐘'); scrollDown(); return; }
+          if (cmd === 'ls' || cmd === 'dir') {
+            out('gabon_lope.jpg   zambia.jpg   celine_dion.m3u   do_not_disturb.txt   left_in_peace/\n\n🐘 4 elephants listed, 0 disturbed.');
+            scrollDown(); return;
+          }
+          if (cmd === 'rm') {
+            out('rm: refusing to remove elephants/ 🐘\nNice try. Protecting them is literally the whole point — not deleting them.');
+            scrollDown(); return;
+          }
+        }
+
+        // snooping in the hidden dotfiles (the ones `ls -al` reveals)
+        const dot = (argStr.match(/(?:^|\s)(\.[\w./-]+)/) || [])[1];
+        if (dot && (cmd === 'cd' || cmd === 'ls' || cmd === 'dir')) {
+          const name = dot.replace(/\/$/, '').toLowerCase();
+          const HID = {
+            '.ssh': 'Permission denied (publickey). 🔑 you are not getting in that easily.',
+            '.git': "fatal: not your repository — and honestly the commit history is embarrassing.",
+            '.hopes_and_dreams': "you cannot enter someone else's hopes and dreams. that's just rude. 💭",
+            '.secret_elephant_plans': "ACCESS DENIED 🐘 those plans are classified (mostly: \"keep them safe\").",
+            '.bashrc': 'that\'s a file, not a directory. did you mean `cat .bashrc`?',
+          };
+          out(HID[name] || (cmd === 'cd'
+            ? 'cd: ' + dot + ': nothing interesting in there, promise.'
+            : dot + ': nice try, snoop. 👀'));
+          scrollDown(); return;
+        }
+
+        if (cmd.endsWith('.exe')) {
+          out(cmd === 'not_a_virus.exe'
+            ? VIRUS
+            : first + ": .exe files don't run here — this isn't Windows. Probably for the best.");
+          scrollDown(); return;
+        }
 
         const fn = C[cmd];
         out(fn ? fn(argStr, line) : pick(NOTFOUND).replace(/%s/g, first));
