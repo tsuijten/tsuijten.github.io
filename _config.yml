@@ -24,6 +24,7 @@ exclude_from_localization:
   - images
   - CNAME
   - robots.txt
+  - sitemap.xml
   - site.webmanifest
   - favicon.ico
   - favicon-16x16.png

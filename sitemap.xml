@@ -1,0 +1,36 @@
+---
+permalink: /sitemap.xml
+sitemap: false
+layout: null
+lang: nl
+---
+{%- comment -%}
+  Multilingual sitemap (inspired by hack-the-planet.io). jekyll-sitemap only
+  sees the default-language build, so we generate this ourselves from the
+  per-language `routes` map in _data/<lang>/common.yml. This file lives in
+  `exclude_from_localization` (_config.yml) so polyglot writes it only once.
+  jekyll-sitemap detects an existing sitemap.xml and backs off.
+{%- endcomment -%}
+{%- assign routes_nl = site.data.nl.common.routes -%}
+{%- assign routes_en = site.data.en.common.routes -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{%- for r in routes_nl -%}
+  {%- assign k = r[0] -%}
+  {%- assign nl_url = site.url | append: r[1] -%}
+  {%- assign en_url = site.url | append: "/en" | append: routes_en[k] -%}
+  <url>
+    <loc>{{ nl_url }}</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="{{ nl_url }}" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ en_url }}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ nl_url }}" />
+  </url>
+  <url>
+    <loc>{{ en_url }}</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="{{ nl_url }}" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ en_url }}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ nl_url }}" />
+  </url>
+{%- endfor %}
+</urlset>
