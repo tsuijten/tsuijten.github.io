@@ -80,21 +80,22 @@
       const careerLog = output.querySelector('.t-log').cloneNode(true);
       const pick = (a) => a[Math.floor(Math.random() * a.length)];
 
-      // Before you interact, the terminal grows and the *page* scrolls (so it
-      // never hijacks touch scrolling). The moment you focus the prompt to type,
-      // it locks its height and becomes its own scroll container.
-      let live = false;
-      const goLive = () => {
-        if (live) return;
-        live = true;
-        body.style.maxHeight = body.scrollHeight + 'px';
-        body.style.overflow = 'auto';
+      // Lock the box height ONCE to the intro's natural height (after webfonts
+      // are ready, so the metrics are final). Never re-measured → never jumps.
+      let locked = false;
+      const lockHeight = () => {
+        if (locked) return;
+        body.style.height = body.offsetHeight + 'px';
+        locked = true;
       };
-      const scrollDown = () => {
-        if (live) body.scrollTop = body.scrollHeight;
-        else form.scrollIntoView({ block: 'nearest' });
-      };
-      input.addEventListener('focus', goLive);
+      (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(lockHeight);
+
+      // Inactive: the output isn't a scroll container, so the page scrolls over
+      // it (no scroll-steal). Active (input focused): the output scrolls itself.
+      input.addEventListener('focus', () => terminal.classList.add('is-active'));
+      input.addEventListener('blur', () => terminal.classList.remove('is-active'));
+
+      const scrollDown = () => { output.scrollTop = output.scrollHeight; };
 
       // echo the typed command back as a prompt line
       const echo = (text) => {
@@ -124,7 +125,7 @@
         });
       };
 
-      const FILES = 'career.bin   elephants/   secrets.env   passwords.txt   todo.md   not_a_virus.exe   ascii_cat.txt';
+      const FILES = 'career.bin   elephants/   secrets.env   passwords.txt   todo.md   not_a_virus.exe   cat.txt';
       const CAT = ' /\\_/\\\n( o.o )\n > ^ <\nmeow. (the only cat this terminal ships with)';
       const TRAIN = '      ====        ________\n  _D _|  |_______/        \\__\n   |(_)---  |   H\\________/ |\n   /     |  |   H  |  |     |\nchoo choo! 🚂  you typed `sl`. did you mean `ls`?';
       const HACK = 'H A C K   T H E   P L A N E T   🌍\n--------------------------------\nNot a slogan. The actual day job.\n→ hack-the-planet.io';
@@ -202,10 +203,10 @@
           const f = a.trim().replace(/^\.\//, '').replace(/\/$/, '').toLowerCase();
           const files = {
             'secrets.env': '# nice try 😏',
-            'passwords.txt': 'hunter2\n(yes, everyone but you can read those asterisks)',
+            'passwords.txt': 'password123\nadmin\nletmein\n\n...just kidding 😏 who stores passwords in a plain .txt file?',
             'todo.md': '- [x] protect elephants\n- [x] keep kids safer online\n- [ ] finally exit vim',
             'career.bin': 'Binary file — not shown. Run:  ./show_history "Thijs Suijten"',
-            'ascii_cat.txt': CAT,
+            'cat.txt': CAT,
             'not_a_virus.exe': 'Running... just kidding. (also: never run a file named this)',
             '.bashrc': 'alias work="protect elephants 🐘"\nexport PURPOSE=tech_for_good\n# perfectly normal, very cool config, nothing to see here',
             '.hopes_and_dreams': 'a world where technology is used for good more often than not. 🌍\n(and, one day, to truly exit vim.)',
@@ -273,7 +274,6 @@
       };
 
       const runLine = (raw) => {
-        goLive();                  // ensure we're a scroll container before output piles up
         const line = raw.trim();
         echo(raw.replace(/\s+$/, ''));
         if (!line) { scrollDown(); return; }

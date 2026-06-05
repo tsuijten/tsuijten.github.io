@@ -377,15 +377,27 @@ h1, h2, h3 {
 .terminal-body {
   padding: 1.1rem 1.25rem 1.25rem;
   color: var(--term-text); line-height: 1.7;
-  /* Until you interact, it grows with its content and the *page* scrolls (so it
-     never hijacks touch scrolling). Once you focus the prompt to type, JS locks
-     the height and flips overflow to auto, making the terminal itself scroll. */
+  /* flex column: scrollable content on top, input pinned below. JS locks the
+     height ONCE to the intro's natural height, so it never changes after that. */
+  display: flex; flex-direction: column;
   overflow: hidden;
   cursor: text;                   /* hint that you can click in and type */
+}
+.t-output {
+  flex: 1 1 auto; min-height: 0;
+  display: flex; flex-direction: column;
+  overflow: hidden;               /* inactive: page scrolls over it (no steal) */
+}
+/* bottom-align via auto-margin (not justify-content, which would hide the
+   scrollbar and block scrolling up) */
+.t-output > :first-child { margin-top: auto; }
+/* active (input focused): the content scrolls */
+.terminal.is-active .t-output {
+  overflow-y: auto;
   scrollbar-width: thin; scrollbar-color: var(--term-line) transparent;
 }
-.terminal-body::-webkit-scrollbar { width: 9px; height: 9px; }
-.terminal-body::-webkit-scrollbar-thumb { background: var(--term-line); border-radius: 6px; }
+.terminal.is-active .t-output::-webkit-scrollbar { width: 9px; }
+.terminal.is-active .t-output::-webkit-scrollbar-thumb { background: var(--term-line); border-radius: 6px; }
 .t-cmd { margin: 0; overflow-wrap: anywhere; }
 .t-prompt { white-space: nowrap; }   /* keep ~$ glued together */
 .t-path { color: #79b294; }       /* moss-green prompt, classic shell */
@@ -427,7 +439,7 @@ h1, h2, h3 {
 
 /* the live input prompt — the input auto-sizes to its text (JS) and a faux block
    cursor sits right after it, blinking always, even when nothing is focused. */
-.t-form { display: flex; align-items: baseline; gap: .45em; margin: .15rem 0 0; }
+.t-form { flex: 0 0 auto; display: flex; align-items: baseline; gap: .45em; margin: .15rem 0 0; }
 .t-entry {
   flex: 1 1 auto; min-width: 0; padding: 0;
   background: transparent; border: 0; outline: 0;
