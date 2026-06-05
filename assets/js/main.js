@@ -89,6 +89,7 @@
       const goLive = () => {
         if (live) return;
         live = true;
+        terminal.classList.add('is-live');   // reveals the blinking cursor, hides the invite
         body.style.maxHeight = body.scrollHeight + 'px';
         body.style.overflow = 'auto';
       };

@@ -378,6 +378,7 @@ h1, h2, h3 {
      never hijacks touch scrolling). Once you focus the prompt to type, JS locks
      the height and flips overflow to auto, making the terminal itself scroll. */
   overflow: hidden;
+  cursor: text;                   /* hint that you can click in and type */
   scrollbar-width: thin; scrollbar-color: var(--term-line) transparent;
 }
 .terminal-body::-webkit-scrollbar { width: 9px; height: 9px; }
@@ -433,10 +434,13 @@ h1, h2, h3 {
   vertical-align: baseline;
 }
 .t-cursor {
-  display: inline-block; width: .6em; height: 1.05em;
+  display: none; width: .6em; height: 1.05em;       /* hidden until you click in */
   vertical-align: -.18em; background: var(--term-text);
   animation: term-blink 1.1s steps(1) infinite;
 }
+.terminal.is-live .t-cursor { display: inline-block; }
+.t-invite { color: var(--term-dim); }               /* the "click to type" nudge */
+.terminal.is-live .t-invite { display: none; }
 @keyframes term-blink { 50% { opacity: 0; } }
 
 /* freshly printed blocks fade in */
@@ -606,7 +610,9 @@ h1, h2, h3 {
     position: fixed; inset: 64px 0 auto 0;
     flex-direction: column; align-items: stretch; gap: 0;
     background: var(--surface); border-bottom: 1px solid var(--line);
-    padding: .5rem 1.25rem 1.25rem; transform: translateY(-120%); transition: transform .25s ease;
+    /* shift up by the menu's own height *plus* the 64px top offset so it always
+       clears the viewport, regardless of how many links it has */
+    padding: .5rem 1.25rem 1.25rem; transform: translateY(calc(-100% - 64px)); transition: transform .25s ease;
     box-shadow: var(--shadow);
   }
   .site-nav.open { transform: translateY(0); }
