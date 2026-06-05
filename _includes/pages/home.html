@@ -176,24 +176,29 @@
         </span>
         <span class="terminal-title mono">thijs@hack-the-planet: ~/history</span>
       </div>
-      <div class="terminal-body mono">
-        <p class="t-cmd">
+      <div class="terminal-body mono" data-term-body>
+        <div class="t-output" data-term-output>
+          <p class="t-cmd">
+            <span class="t-path">~</span><span class="t-punc">$</span>
+            <span class="t-input">./show_history "Thijs Suijten"</span>
+          </p>
+          <ol class="t-log">
+            {%- for item in t.history.items -%}
+              <li class="t-line" style="--i: {{ forloop.index0 }}">
+                <span class="t-node" aria-hidden="true">*</span>
+                <span class="t-year">{{ item.year }}</span>
+                <span class="t-text">{{ item.text }}</span>
+              </li>
+            {%- endfor -%}
+          </ol>
+          <p class="t-hint"># this terminal is real — type <b>help</b> and hit enter</p>
+        </div>
+        <form class="t-form" data-term-form>
           <span class="t-path">~</span><span class="t-punc">$</span>
-          <span class="t-input">./show_history "Thijs Suijten"</span>
-        </p>
-        <ol class="t-log">
-          {%- for item in t.history.items -%}
-            <li class="t-line" style="--i: {{ forloop.index0 }}">
-              <span class="t-node" aria-hidden="true">*</span>
-              <span class="t-year">{{ item.year }}</span>
-              <span class="t-text">{{ item.text }}</span>
-            </li>
-          {%- endfor -%}
-        </ol>
-        <p class="t-cmd t-cmd--end">
-          <span class="t-path">~</span><span class="t-punc">$</span>
-          <span class="t-cursor" aria-hidden="true"></span>
-        </p>
+          <input class="t-entry" data-term-input type="text" autocomplete="off"
+                 autocapitalize="none" autocorrect="off" spellcheck="false"
+                 aria-label="Terminal — type a command and press enter">
+        </form>
       </div>
     </div>
   </div>
