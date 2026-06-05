@@ -17,7 +17,7 @@
     </div>
     <div class="hero-media">
       <figure class="polaroid">
-        <img src="/images/thijs-suijten-on-stage-tedx.webp" alt="Thijs Suijten op het TEDx-podium" loading="eager">
+        <img src="/images/thijs-suijten-on-stage-tedx.webp" alt="Thijs Suijten op het TEDx-podium" {% imagesize /images/thijs-suijten-on-stage-tedx.webp:props %} loading="eager">
         <figcaption class="mono">// thijs @ tedxutrecht</figcaption>
       </figure>
     </div>
@@ -30,7 +30,7 @@
     <h2 class="section-title">{{ t.story.title }}</h2>
     {%- if t.story.photo -%}
     <figure class="polaroid story-photo">
-      <img src="{{ t.story.photo.image }}" alt="{{ t.story.photo.alt }}" loading="lazy">
+      <img src="{{ t.story.photo.image }}" alt="{{ t.story.photo.alt }}" {% imagesize t.story.photo.image:props %} loading="lazy">
       <figcaption>{{ t.story.photo.caption }}</figcaption>
     </figure>
     {%- endif -%}
@@ -77,7 +77,7 @@
         <li class="project-card">
           {%- if p.image -%}
           <div class="project-photo">
-            <img src="{{ p.image }}" alt="{{ p.image_alt }}" loading="lazy">
+            <img src="{{ p.image }}" alt="{{ p.image_alt }}" {% imagesize p.image:props %} loading="lazy">
             <span class="project-loc">// {{ p.location }}</span>
           </div>
           {%- endif -%}
@@ -118,7 +118,7 @@
       <a class="btn btn-primary" href="{{ t.talks_teaser.cta.url }}">{{ t.talks_teaser.cta.label }} <span aria-hidden="true">→</span></a>
     </div>
     <a class="video-card" href="{{ t.talks_teaser.video.url }}" target="_blank" rel="noopener">
-      <img src="/images/thijs-suijten-public-speaker.webp" alt="Thijs Suijten als spreker" loading="lazy">
+      <img src="/images/thijs-suijten-public-speaker.webp" alt="Thijs Suijten als spreker" {% imagesize /images/thijs-suijten-public-speaker.webp:props %} loading="lazy">
       <span class="video-play" aria-hidden="true">▶</span>
       <span class="video-meta mono">
         <span class="tedx-badge">TEDx</span>
@@ -192,11 +192,9 @@
         </div>
         <form class="t-form" data-term-form>
           <span class="t-prompt"><span class="t-path">~</span><span class="t-punc">$</span></span>
-          <span class="t-inputwrap">
-            <input class="t-entry" data-term-input type="text" autocomplete="off"
-                   autocapitalize="none" autocorrect="off" spellcheck="false"
-                   aria-label="Terminal — type a command and press enter"><span class="t-cursor" aria-hidden="true"></span><span class="t-invite">click to type — try “help”</span>
-          </span>
+          <input class="t-entry" data-term-input type="text" autocomplete="off"
+                 autocapitalize="none" autocorrect="off" spellcheck="false"
+                 aria-label="Terminal — type a command and press enter">
         </form>
       </div>
     </div>

@@ -11,7 +11,7 @@
     <li>
       <a class="media-card" href="{{ m.url }}" target="_blank" rel="noopener">
         <div class="media-photo">
-          <img src="{{ m.image }}" alt="{{ m.title }}" loading="lazy">
+          <img src="{{ m.image }}" alt="{{ m.title }}" {% imagesize m.image:props %} loading="lazy">
           <span class="video-play" aria-hidden="true">▶</span>
         </div>
         <div class="media-body">

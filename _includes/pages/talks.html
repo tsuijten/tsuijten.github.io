@@ -40,7 +40,7 @@
   <div class="container">
     <a class="tedx-feature" href="{{ t.tedx.url }}" target="_blank" rel="noopener">
       <div class="tedx-feature-media">
-        <img src="/images/thijs-suijten-on-stage-tedx.webp" alt="Thijs Suijten op het TEDx-podium" loading="lazy">
+        <img src="/images/thijs-suijten-on-stage-tedx.webp" alt="Thijs Suijten op het TEDx-podium" {% imagesize /images/thijs-suijten-on-stage-tedx.webp:props %} loading="lazy">
         <span class="video-play" aria-hidden="true">▶</span>
       </div>
       <div class="tedx-feature-copy">
@@ -101,7 +101,7 @@
         <li class="quote-card">
           <blockquote>{{ q.quote }}</blockquote>
           <figcaption class="quote-author">
-            <img src="{{ q.avatar }}" alt="{{ q.name }}" loading="lazy">
+            <img src="{{ q.avatar }}" alt="{{ q.name }}" {% imagesize q.avatar:props %} loading="lazy">
             <span><strong>{{ q.name }}</strong><br><span class="mono">{{ q.role }}</span></span>
           </figcaption>
         </li>

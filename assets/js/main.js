@@ -42,19 +42,17 @@
   // --- Mobile nav ---
   const navToggle = document.querySelector('[data-nav-toggle]');
   const nav = document.querySelector('[data-nav]');
+  const navScrim = document.querySelector('[data-nav-scrim]');
   if (navToggle && nav) {
-    navToggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
+    const setMenu = (open) => {
+      nav.classList.toggle('open', open);
       navToggle.classList.toggle('open', open);
       navToggle.setAttribute('aria-expanded', String(open));
-    });
-    nav.querySelectorAll('a').forEach((a) => {
-      a.addEventListener('click', () => {
-        nav.classList.remove('open');
-        navToggle.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
+      if (navScrim) navScrim.classList.toggle('open', open);
+    };
+    navToggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+    if (navScrim) navScrim.addEventListener('click', () => setMenu(false));
+    nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
   }
 
   // --- Terminal (history): scroll-reveal + a genuinely interactive shell ---
@@ -89,7 +87,6 @@
       const goLive = () => {
         if (live) return;
         live = true;
-        terminal.classList.add('is-live');   // reveals the blinking cursor, hides the invite
         body.style.maxHeight = body.scrollHeight + 'px';
         body.style.overflow = 'auto';
       };
@@ -98,11 +95,6 @@
         else form.scrollIntoView({ block: 'nearest' });
       };
       input.addEventListener('focus', goLive);
-
-      // grow the input to fit its text so the block cursor trails right behind it
-      const sizeInput = () => { input.style.width = input.value.length + 'ch'; };
-      input.addEventListener('input', sizeInput);
-      sizeInput();
 
       // echo the typed command back as a prompt line
       const echo = (text) => {
@@ -291,7 +283,15 @@
         const lower = line.toLowerCase().replace(/^\.\//, '');
 
         // built-ins & phrase easter eggs first
-        if (cmd === 'clear' || cmd === 'cls') { output.innerHTML = ''; scrollDown(); return; }
+        if (cmd === 'clear' || cmd === 'cls') {
+          output.innerHTML = '';
+          out(pick([
+            '✨ poof — a clean slate. try not to clutter it again.',
+            "cleared. it's like it never happened. 🧽",
+            '🧹 swept. you can almost smell the fresh pixels.',
+          ]));
+          scrollDown(); return;
+        }
         if (cmd === 'show_history') { showHistory(argStr); scrollDown(); return; }
         if (lower === 'hack the planet') { out(HACK); scrollDown(); return; }
         if (/\bceline\b|\bdion\b/.test(lower)) { out(CELINE); scrollDown(); return; }
@@ -345,7 +345,6 @@
         e.preventDefault();
         const v = input.value;
         input.value = '';
-        sizeInput();
         runLine(v);
         input.focus();
       });
