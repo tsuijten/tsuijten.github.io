@@ -167,13 +167,34 @@
   <div class="container narrow">
     <span class="field-label">// {{ t.history.label }}</span>
     <h2 class="section-title">{{ t.history.title }}</h2>
-    <ul class="timeline">
-      {%- for item in t.history.items -%}
-        <li>
-          <span class="yr mono">{{ item.year }}</span>
-          <p>{{ item.text }}</p>
-        </li>
-      {%- endfor -%}
-    </ul>
+    <div class="terminal" data-terminal>
+      <div class="terminal-bar" aria-hidden="true">
+        <span class="terminal-dots">
+          <span class="terminal-dot"></span>
+          <span class="terminal-dot"></span>
+          <span class="terminal-dot"></span>
+        </span>
+        <span class="terminal-title mono">thijs@hack-the-planet: ~/history</span>
+      </div>
+      <div class="terminal-body mono">
+        <p class="t-cmd">
+          <span class="t-path">~</span><span class="t-punc">$</span>
+          <span class="t-input">./show_history "Thijs Suijten"</span>
+        </p>
+        <ol class="t-log">
+          {%- for item in t.history.items -%}
+            <li class="t-line" style="--i: {{ forloop.index0 }}">
+              <span class="t-node" aria-hidden="true">*</span>
+              <span class="t-year">{{ item.year }}</span>
+              <span class="t-text">{{ item.text }}</span>
+            </li>
+          {%- endfor -%}
+        </ol>
+        <p class="t-cmd t-cmd--end">
+          <span class="t-path">~</span><span class="t-punc">$</span>
+          <span class="t-cursor" aria-hidden="true"></span>
+        </p>
+      </div>
+    </div>
   </div>
 </section>

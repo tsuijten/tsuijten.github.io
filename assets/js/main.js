@@ -56,4 +56,19 @@
       });
     });
   }
+
+  // --- Terminal (history): print the log in line-by-line when it scrolls in ---
+  const terminal = document.querySelector('[data-terminal]');
+  if (terminal && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    terminal.classList.add('is-anim');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-on');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -15% 0px', threshold: 0.25 });
+    io.observe(terminal);
+  }
 })();
