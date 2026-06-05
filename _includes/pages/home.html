@@ -163,7 +163,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="terminal">
   <div class="container narrow">
     <span class="field-label">// {{ t.history.label }}</span>
     <h2 class="section-title">{{ t.history.title }}</h2>
@@ -192,9 +192,11 @@
         </div>
         <form class="t-form" data-term-form>
           <span class="t-prompt"><span class="t-path">~</span><span class="t-punc">$</span></span>
-          <input class="t-entry" data-term-input type="text" autocomplete="off"
-                 autocapitalize="none" autocorrect="off" spellcheck="false"
-                 aria-label="Terminal — type a command and press enter">
+          <span class="t-inputwrap">
+            <input class="t-entry" data-term-input type="text" autocomplete="off"
+                   autocapitalize="none" autocorrect="off" spellcheck="false"
+                   aria-label="Terminal — type a command and press enter"><span class="t-cursor" aria-hidden="true"></span>
+          </span>
         </form>
       </div>
     </div>

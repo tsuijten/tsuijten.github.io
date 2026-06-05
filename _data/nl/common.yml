@@ -12,16 +12,12 @@ routes:
   talks: "/spreker/"
 
 nav:
-  - title: Verhaal
-    url: "/#verhaal"
-  - title: Wat ik doe
-    url: "/#wat-ik-doe"
-  - title: Projecten
-    url: "/#projecten"
   - title: Spreker
     url: "/spreker/"
   - title: Contact
     url: "/#contact"
+  - title: ~/terminal
+    url: "/#terminal"
 
 footer:
   tagline: "Engineer die z'n code inzet voor iets groters."

@@ -98,6 +98,11 @@
       };
       input.addEventListener('focus', goLive);
 
+      // grow the input to fit its text so the block cursor trails right behind it
+      const sizeInput = () => { input.style.width = input.value.length + 'ch'; };
+      input.addEventListener('input', sizeInput);
+      sizeInput();
+
       // echo the typed command back as a prompt line
       const echo = (text) => {
         const p = document.createElement('p');
@@ -235,7 +240,7 @@
         rm: (a) => /-rf|[\/*]/.test(a)
           ? 'Phew — I only PRETENDED to run that. Everything is fine. 🔥😅'
           : "rm: not authorized to delete Thijs's stuff. Nice try though.",
-        vim: () => 'You are in Vim now. To exit: :q!  — or just close the tab, no judgement.',
+        vim: () => "Nope — I'm not letting you in. Nobody who opens Vim is ever seen again. 😬 (it's for your own good)",
         vi: () => C.vim(),
         nano: () => 'nano? in this economy? bold. respect.',
         emacs: () => 'emacs: a fine operating system — shame about the editor.',
@@ -339,6 +344,7 @@
         e.preventDefault();
         const v = input.value;
         input.value = '';
+        sizeInput();
         runLine(v);
         input.focus();
       });
