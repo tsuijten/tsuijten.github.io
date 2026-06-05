@@ -142,6 +142,25 @@ inspire:
   title: "Want to put your own talent to work?"
   intro: "Ask yourself these three questions — the same ones I share from the stage."
 
+history:
+  label: "in short: how i got here"
+  title: "From gaming to elephants"
+  items:
+    - year: "1994"
+      text: "First computer at home (thanks, Dad). Instantly sold on gaming and programming."
+    - year: "2003"
+      text: "Graduated in computer science at The Hague University of Applied Sciences."
+    - year: "after that"
+      text: "At a small software company I really learned to program — and to build software products, with everything that comes with it. Soon became co-owner."
+    - year: "2012"
+      text: "I read The Lean Startup. A bit of a slap in the face: I'd been building features nobody needed. That's where I learned technology is a means, not an end in itself."
+    - year: "then"
+      text: "Worked on all kinds of (lean) startups. That's where my tech-for-good mindset really started to surface."
+    - year: "2015"
+      text: "Left my own company — not easy — and joined Q42. There I built apps used by millions every day, like PostNL, the Rijksmuseum, 9292 and Wie is de Mol."
+    - year: "2019 - now"
+      text: "It started nagging again: am I doing something that truly matters? At Hack The Planet I put my skills to work for nature and people."
+
 contact:
   label: "say hi"
   emoji: "👋"

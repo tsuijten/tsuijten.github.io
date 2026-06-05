@@ -162,3 +162,18 @@
     {% include watch.html %}
   </div>
 </section>
+
+<section class="section">
+  <div class="container narrow">
+    <span class="field-label">// {{ t.history.label }}</span>
+    <h2 class="section-title">{{ t.history.title }}</h2>
+    <ul class="timeline">
+      {%- for item in t.history.items -%}
+        <li>
+          <span class="yr mono">{{ item.year }}</span>
+          <p>{{ item.text }}</p>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>

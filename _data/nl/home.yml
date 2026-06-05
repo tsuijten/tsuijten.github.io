@@ -147,6 +147,25 @@ inspire:
   title: "Zin om je eigen talent in te zetten?"
   intro: "Stel jezelf eens deze drie vragen — dezelfde die ik op het podium meegeef."
 
+history:
+  label: "kort: hoe ik hier kwam"
+  title: "Van gamen naar olifanten"
+  items:
+    - year: "1994"
+      text: "Eerste computer in huis (bedankt pa). Meteen verkocht aan gamen én programmeren."
+    - year: "2003"
+      text: "Informatica afgerond aan de Haagse Hogeschool."
+    - year: "daarna"
+      text: "Bij een klein softwarebedrijf leerde ik écht programmeren — en softwareproducten maken, met alles wat daarbij komt kijken. Al snel werd ik mede-eigenaar."
+    - year: "2012"
+      text: "Ik las The Lean Startup. Best een klap in m'n gezicht: ik bouwde features die niemand nodig had. Daar leerde ik dat techniek een middel is, geen doel op zich."
+    - year: "vervolgens"
+      text: "Aan allerlei (lean) startups gewerkt. Daar begon mijn tech-for-good-mentaliteit al echt boven te drijven."
+    - year: "2015"
+      text: "Met pijn in m'n hart uit mijn eigen bedrijf gestapt en bij Q42 begonnen. Daar bouwde ik apps die miljoenen mensen dagelijks gebruiken — o.a. PostNL, Rijksmuseum, 9292 en Wie is de Mol."
+    - year: "2019 - nu"
+      text: "Het begon weer te knagen: doe ik wel iets dat er écht toe doet? Bij Hack The Planet zet ik nu mijn skills in voor natuur en mensen."
+
 contact:
   label: "zeg hallo"
   emoji: "👋"

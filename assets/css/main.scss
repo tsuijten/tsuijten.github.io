@@ -334,6 +334,21 @@ h1, h2, h3 {
 }
 .statement-quote .accent { color: var(--accent); }
 
+/* ---------- history timeline (home) ---------- */
+.timeline { list-style: none; margin: .5rem 0 0; padding: 0; }
+.timeline li {
+  display: grid; grid-template-columns: 6.5rem 1fr; gap: .25rem 1.25rem;
+  padding: 1rem 0; border-bottom: 1px dashed var(--line); align-items: baseline;
+}
+.timeline .yr {
+  font-size: .82rem; letter-spacing: .04em; color: var(--accent);
+}
+.timeline .yr::before { content: "› "; opacity: .7; }
+.timeline p { margin: 0; color: var(--ink); }
+@media (max-width: 560px) {
+  .timeline li { grid-template-columns: 1fr; gap: .1rem; }
+}
+
 /* ---------- three-questions list (home) ---------- */
 .qlist { list-style: none; margin: .5rem 0 0; padding: 0; }
 .qlist li { padding: 1.15rem 0; border-bottom: 1px dashed var(--line); }
